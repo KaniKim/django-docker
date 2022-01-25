@@ -3,8 +3,13 @@ version: '3.8'
 services:
   web:
     build: .
-    command: python /docker-django/manage.py runserver 0.0.0.0:8000
+    command: python /django-docker/manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/docker-django
+      - .:/django-docker
     ports:
       - 8000:8000
+
+  db:
+    image: postgres:11
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
