@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "pages",
     "accounts",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -129,3 +132,11 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+STATIC_URL = "/static/"
+STATICFILES_DIRS = (str(BASE_DIR.joinpath("static")),)
+STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
