@@ -9,6 +9,11 @@ psycopg2-binary = "2.8.5"
 flake8 = "*"
 
 [dev-packages]
+pylint = "*"
+black = "*"
 
 [requires]
 python_version = "3.10"
+
+[pipenv]
+allow_prereleases = true
