@@ -8,6 +8,7 @@ django = "~=3.1.0"
 psycopg2-binary = "2.8.5"
 flake8 = "*"
 django-crispy-forms = "==1.9.2"
+django-allauth = "==0.42.0"
 
 [dev-packages]
 pylint = "*"
