@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "allauth",
     "allauth.account",
+    "django_extensions",
 ]
 
 SITE_ID = 1
