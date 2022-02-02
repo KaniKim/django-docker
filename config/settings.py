@@ -41,17 +41,19 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    # Local
-    "pages",
-    "accounts",
     # Third Party
     "crispy_forms",
     "allauth",
     "allauth.account",
     "django_extensions",
+    # Local
+    "user",
+    "billing",
 ]
 
 SITE_ID = 1
+
+AUTH_USER_MODEL = "user.User"
 
 AUTHENTICATION_BACKEND = (
     "django.contrib.auth.backends.ModelBackend",
@@ -147,8 +149,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-
-AUTH_USER_MODEL = "accounts.CustomUser"
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
