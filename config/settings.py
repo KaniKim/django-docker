@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "django_extensions",
+    "corsheaders",
     # Local
     "user",
     "billing",
@@ -77,7 +78,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
+CORS_ORIGIN_WHITELIST = ("localhost:8080",)
 
 ROOT_URLCONF = "config.urls"
 

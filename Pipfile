@@ -12,6 +12,7 @@ django-allauth = "==0.42.0"
 environs = {version = "==8.0.0", extras = ["django"]}
 uvicorn = "*"
 django-extensions = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 pylint = "*"

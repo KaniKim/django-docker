@@ -10,4 +10,3 @@ COPY . /django-docker/
 
 RUN pip install pipenv && pipenv install --system
 
-
