@@ -1,6 +1,13 @@
 version: '3.8'
 
 services:
+  front:
+    build:
+      dockerfile: ./vue_spa/Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/vue_spa
   web:
     build: .
     command: uvicorn config.asgi:application

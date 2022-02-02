@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# node
+package.json
+package-lock.json
+
 # C extensions
 *.so
 
@@ -133,3 +137,4 @@ dmypy.json
 
 # ETC
 .DS_Store
+node_modules
