@@ -1,16 +1,8 @@
 version: '3.8'
 
 services:
-  front:
-    build: ./billing/vue_spa
-    ports:
-      - 8080:8080
-    volumes:
-      - ./billing/vue_spa:/vue_spa
-    command: npm run build -- --mode staging
-    depends_on:
-      - web
   web:
+    restart: always
     build: .
     command: uvicorn config.asgi:application --host 0.0.0.0 --port 8000
     volumes:
@@ -22,24 +14,15 @@ services:
     environment:
       - "DJANGO_SECRET_KEY=01ec&3@)b0$$-302i(m$$e+b^5h3gu96ffg%&bmv-=e5qt(p0w!!"
       - "DJANGO_DEBUG=True"
+
   db:
+    restart: always
     image: postgres:11
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
 
-  nginx:
-    build:
-      context: ./
-      dockerfile: ./web/Dockerfile
-    ports:
-      - 80:80
-    volumes:
-      - ./web/logs/nginx/:/var/log/nginx/
-      - ./static:/var/www/static/
-    depends_on:
-      - web
 volumes:
   postgres_data:
 

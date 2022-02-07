@@ -13,6 +13,7 @@ environs = {version = "==8.0.0", extras = ["django"]}
 uvicorn = "*"
 django-extensions = "*"
 django-cors-headers = "*"
+django-webpack-loader = "*"
 
 [dev-packages]
 pylint = "*"
