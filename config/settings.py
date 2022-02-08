@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "webpack_loader",
+    "rest_framework",
+    "django_extensions",
     # Local
     "user",
     "billing",
@@ -109,7 +111,9 @@ WEBPACK_LOADER = {
     "DEFAULT": {
         "CACHE": DEBUG,
         "BUNDLE_DIR_NAME": "/vue_spa/",  # must end with slash
-        "STATS_FILE": os.path.join(BASE_DIR / "vue_spa" / "webpack-stats.json"),
+        "STATS_FILE": os.path.join(
+            BASE_DIR / "vue_spa" / "webpack-stats.json"
+        ),  # NOQA
     }
 }
 
