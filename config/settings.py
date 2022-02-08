@@ -19,7 +19,7 @@ env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+print(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -51,8 +51,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "allauth",
     "allauth.account",
-    "django_extensions",
-    "corsheaders",
+    "webpack_loader",
     # Local
     "user",
     "billing",
@@ -93,7 +92,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "billing/templates/billing")],
+        "DIRS": [os.path.join(BASE_DIR, "vue_spa")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -105,6 +104,14 @@ TEMPLATES = [
         },
     },
 ]
+
+WEBPACK_LOADER = {
+    "DEFAULT": {
+        "CACHE": DEBUG,
+        "BUNDLE_DIR_NAME": "/vue_spa/",  # must end with slash
+        "STATS_FILE": os.path.join(BASE_DIR / "vue_spa" / "webpack-stats.json"),
+    }
+}
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
@@ -153,6 +160,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = (os.path.join("static"),)
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"

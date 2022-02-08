@@ -14,7 +14,12 @@ services:
     environment:
       - "DJANGO_SECRET_KEY=01ec&3@)b0$$-302i(m$$e+b^5h3gu96ffg%&bmv-=e5qt(p0w!!"
       - "DJANGO_DEBUG=True"
-
+  front:
+    build: ./vue_spa
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/vue_spa
   db:
     restart: always
     image: postgres:11

@@ -1,0 +1,31 @@
+{
+  "status": "done",
+  "assets": {
+    "img/logo.82b9c7a5.png": {
+      "name": "img/logo.82b9c7a5.png",
+      "path": "/Users/kanikim/django-docker/vue_spa/dist/img/logo.82b9c7a5.png",
+      "publicPath": "http://127.0.0.1:8080/img/logo.82b9c7a5.png"
+    },
+    "js/index.js": {
+      "name": "js/index.js",
+      "path": "/Users/kanikim/django-docker/vue_spa/dist/js/index.js",
+      "publicPath": "http://127.0.0.1:8080/js/index.js"
+    },
+    "index.html": {
+      "name": "index.html",
+      "path": "/Users/kanikim/django-docker/vue_spa/dist/index.html",
+      "publicPath": "http://127.0.0.1:8080/index.html"
+    },
+    "favicon.ico": {
+      "name": "favicon.ico",
+      "path": "/Users/kanikim/django-docker/vue_spa/dist/favicon.ico",
+      "publicPath": "http://127.0.0.1:8080/favicon.ico"
+    }
+  },
+  "chunks": {
+    "index": [
+      "js/index.js"
+    ]
+  },
+  "publicPath": "http://127.0.0.1:8080/"
+}
