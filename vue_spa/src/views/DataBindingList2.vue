@@ -11,43 +11,30 @@
         </tr>
       </thread>
       <tbody>
-        <div v-if="isLoaded">
-          <tr :key="i" v-for="{ product, i } in productList.data">
-            <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.delivery_price }}</td>
-          </tr>
-        </div>
-        <div v-else>Loading...</div>
+        <tr :key="i" v-for="(product, i) in productList">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.delivery_price }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
 <script>
-import axios from "axios";
-
 export default {
   data() {
     return {
-      isLoaded: false,
       productList: [],
     };
   },
   created() {
-    this.fetchData();
+    this.getList();
   },
   methods: {
-    fetchData: function () {
-      axios
-        .get("/list/")
-        .then(function (response) {
-          self.productList = response.data;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    async getList() {
+      this.productList = await this.$api("/list/", "get");
     },
   },
 };

@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: "/databinding",
-    name: "databinding",
+    name: "databindings",
     component: DataBindingList2
   }
 ];

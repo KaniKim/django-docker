@@ -111,7 +111,7 @@ TEMPLATES = [
 ]
 
 WEBPACK_LOADER = {
-    "DEFAULT": {
+    "DEFAULT": { 
         "CACHE": DEBUG,
         "BUNDLE_DIR_NAME": "/vue_spa/",  # must end with slash
         "STATS_FILE": os.path.join(
