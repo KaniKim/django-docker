@@ -8,5 +8,5 @@ WORKDIR /django-docker
 COPY Pipfile Pipfile.lock /django-docker/
 COPY . /django-docker/
 
-RUN pip install pipenv && pipenv install --system
+RUN pip install pipenv && pipenv install --system  && rm -rf /var/lib/apt/lists/* 
 
