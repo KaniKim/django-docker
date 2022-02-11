@@ -3,6 +3,7 @@
     <table>
       <thread>
         <tr>
+          <th>id</th>
           <th>제품명</th>
           <th>가격</th>
           <th>카테고리</th>
@@ -10,29 +11,43 @@
         </tr>
       </thread>
       <tbody>
-        <tr :key="i" v-for="{ product, i } in productList">
-          <td>{{ product.product_name }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.delivery_price }}</td>
-        </tr>
+        <div v-if="isLoaded">
+          <tr :key="i" v-for="{ product, i } in productList.data">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.delivery_price }}</td>
+          </tr>
+        </div>
+        <div v-else>Loading...</div>
       </tbody>
     </table>
   </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
+      isLoaded: false,
       productList: [],
     };
   },
   created() {
-    this.getList();
+    this.fetchData();
   },
   methods: {
-    async getList() {
-      this.productList = await this.$("localhost:8000/list", "get");
+    fetchData: function () {
+      axios
+        .get("/list/")
+        .then(function (response) {
+          self.productList = response.data;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
   },
 };

@@ -20,4 +20,5 @@ urlpatterns = [
     # Django Admin
     path("admin/", admin.site.urls),
     path("billing/", include("billing.urls", namespace="billing")),
+    path("list/", include("list.urls", namespace="list")),
 ]

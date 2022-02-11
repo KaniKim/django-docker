@@ -54,9 +54,11 @@ INSTALLED_APPS = [
     "webpack_loader",
     "rest_framework",
     "django_extensions",
+    "corsheaders",
     # Local
     "user",
     "billing",
+    "list"
 ]
 
 SITE_ID = 1
@@ -78,6 +80,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -86,7 +89,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
+    "django.middleware.common.CommonMiddleware"
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -149,6 +152,9 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # NOQA
     },
 ]
+
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8080', 'http://localhost:8080'] 
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Internationalization
