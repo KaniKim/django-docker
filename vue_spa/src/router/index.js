@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import NestedComponent from "../views/NestedComponent.vue";
+import Login from "../views/Login.vue";
 
 const routes = [
   {
@@ -9,9 +9,9 @@ const routes = [
     component: Home
   },
   {
-    path: "/nested",
-    name: "nested",
-    component: NestedComponent
+    path: "/kakaologin",
+    name: "kakaologin",
+    component: Login
   }
 ];
 

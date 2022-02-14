@@ -9,3 +9,5 @@ app.use(router);
 app.use(store);
 app.mixin(mixins);
 app.mount("#app");
+
+window.kakao.init("8657afbf070587bf595dacba6dc9b801");
