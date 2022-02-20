@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Login from "../views/Login.vue";
-
+import KakaoLogin from "../views/KakaoLogin.vue";
 const routes = [
   {
     path: "/",
@@ -9,9 +8,9 @@ const routes = [
     component: Home
   },
   {
-    path: "/kakaologin",
-    name: "kakaologin",
-    component: Login
+    path: "/login",
+    name: "login",
+    compoenet: KakaoLogin
   }
 ];
 
